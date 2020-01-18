@@ -20,6 +20,8 @@ manifest:
     remote: pinetime
 
   remotes:
+    - name: ncs
+      url-base: https://github.com/NordicPlayground
     - name: pinetime
       url-base: https://github.com/nordic-krch
     - name: zephyrproject
@@ -30,13 +32,14 @@ manifest:
   # The list of external projects for the Pinetime.
   #
   projects:
+    - name: nrf
+      repo-path: fw-nrfconnect-nrf
+      west-commands: scripts/west-commands.yml
+      revision: d43664e241668d6b6e989a1f7785f8715a9f9671
+      remote: ncs
     - name: zephyr
       west-commands: scripts/west-commands.yml
       revision: cbe6edcfa7049d02b8f2215abc8ccb828c86d646
-      remote: zephyrproject
-    - name: ci-tools
-      revision: eb7f1e19eff28d486c64b850ef7b9dcd0331a7af
-      path: tools/ci-tools
       remote: zephyrproject
     - name: fatfs
       revision: 0c1288bb817c1976388e0f55e8483f671ae437ab
@@ -59,13 +62,14 @@ manifest:
       path: modules/crypto/mbedtls
       remote: zephyrproject
     - name: mcuboot
-      revision: c2bd757332bfde11c27019f937b0c61d5e9b9fd9
-      path: bootloader/mcuboot
-      remote: zephyrproject
+      repo-path: fw-nrfconnect-mcuboot
+      revision: 0b59f48e4dce86d0c8d4e09688feb362c7223ad3
+      remote: ncs
     - name: mcumgr
-      revision: b18b3d16441f40cf983aa034258e8f7c97bfe9bf
+      repo-path: fw-nrfconnect-mcumgr
+      revision: f663988d35da559a37f263d369842dbce309d1fa
       path: modules/lib/mcumgr
-      remote: zephyrproject
+      remote: ncs
     - name: net-tools
       revision: 30b7efa827b04d2e47840716b0372737fe7d6c92
       path: tools/net-tools
