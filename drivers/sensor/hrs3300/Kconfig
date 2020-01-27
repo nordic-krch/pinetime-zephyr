@@ -8,6 +8,13 @@ menuconfig HRS3300
 
 if HRS3300
 
+config HRS3300_CMDS
+	bool "Shell commands"
+	depends on SHELL
+	default y
+	help
+	  Enable shell commands for HRS3300 sensor.
+
 config HRS3300_SMP_AVE
 	int "Sample averaging"
 	range 0 7
